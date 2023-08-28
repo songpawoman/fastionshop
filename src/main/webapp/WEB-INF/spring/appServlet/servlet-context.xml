@@ -20,11 +20,19 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+
+
 	
 	<!-- 지정한 패키지안의 클래스들을 모조리 검색하여 스프링에서 지정한 컴포넌트에
 	해당될경우 메모리에 인스턴스를 생성해줌 -->
-	<context:component-scan base-package="org.sp.app0828" />
+	<context:component-scan base-package="org.sp.app0828"/>
 	
 	
 	
 </beans:beans>
+
+
+
+
+
+
