@@ -39,8 +39,9 @@
 						data-widget="treeview" role="menu" data-accordion="false">
 						<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-						<li class="nav-item menu-open"><a href="#"
-							class="nav-link active"> <i
+               
+						<li class="nav-item"><a href="#"
+							class="nav-link"> <i
 								class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
 									상품관리 <i class="right fas fa-angle-left"></i>
@@ -49,18 +50,61 @@
 							<ul class="nav nav-treeview">
 								<li class="nav-item"><a href="./index.html"
 									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>Dashboard v1</p>
+										<p>카테고리 관리</p>
 								</a></li>
 								<li class="nav-item"><a href="./index2.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Dashboard v2</p>
+										<p>상품등록</p>
 								</a></li>
 								<li class="nav-item"><a href="./index3.html"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Dashboard v3</p>
+										<p>상품목록</p>
 								</a></li>
 							</ul></li>
+						
+						<!-- 회원관리 -->
+													               
+						<li class="nav-item menu-open"><a href="#"
+							class="nav-link"> <i
+								class="nav-icon fas fa-tachometer-alt"></i>
+								<p>
+									회원관리 <i class="right fas fa-angle-left"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="./index.html"
+									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
+										<p>회원조회</p>
+								</a></li>
+								<li class="nav-item"><a href="./index2.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>메일발송</p>
+								</a></li>
+								
+							</ul></li>
 							
+						<!-- 주문관리 -->
+						<li class="nav-item]"><a href="#"
+							class="nav-link"> <i
+								class="nav-icon fas fa-tachometer-alt"></i>
+								<p>
+									주문관리 <i class="right fas fa-angle-left"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="./index.html"
+									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
+										<p>주문조회</p>
+								</a></li>
+								<li class="nav-item"><a href="./index2.html"
+									class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>반품관리</p>
+								</a></li>
+								
+							</ul></li>
+						
+
+													
 					</ul>
 				</nav>
 				<!-- /.sidebar-menu -->
