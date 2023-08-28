@@ -1,5 +1,9 @@
 package org.sp.app0828.admin.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.sp.app0828.domain.Admin;
 import org.sp.app0828.model.admin.AdminDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,13 +37,25 @@ public class LoginController {
 	
 	//로그인 요청 처리 
 	@RequestMapping(value="/admin/login", method=RequestMethod.POST)
-	public ModelAndView login() {
+	public ModelAndView login(Admin admin, HttpServletRequest request) {
 		//3단계: 로직객체에 일 시킨다...
 		System.out.println("로그인요청함");
-		//adminDAO.login(admin); //로그인 검증처리...
+		Admin obj=adminDAO.login(admin); //로그인 검증처리...
 		
+		ModelAndView mav = new ModelAndView();
 		
-		return null;
+		//obj 가  null 이면 로그인정보가 실패 
+		if(obj==null) {
+			mav.addObject("msg", "로그인 정보가 올바르지 않습니다");
+			mav.setViewName("error/result");
+		}else {
+			//obj 가 채워져 있다면, 로그인 성공, 세션에 DTO 담기
+			HttpSession session=request.getSession();//이 요청과 관련된 세션 얻기 
+			session.setAttribute("admin", obj);
+			mav.setViewName("admin/index");//성공하면 관리자 메인페이지
+		}
+		
+		return mav;
 	}
 	
 }

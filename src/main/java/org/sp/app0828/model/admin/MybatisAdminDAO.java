@@ -1,6 +1,9 @@
 package org.sp.app0828.model.admin;
 
+import org.apache.ibatis.session.SqlSession;
 import org.sp.app0828.domain.Admin;
+import org.sp.app0828.mybatis.MybatisConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 //이 클래스는 AdminDAO  형 中 중 하나이다..
@@ -8,8 +11,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MybatisAdminDAO implements AdminDAO{
 	
+	@Autowired
+	private MybatisConfig mybatisConfig;
+	
 	public Admin login(Admin admin) {
-		return null;
+		SqlSession sqlSession = mybatisConfig.getSqlSession();
+		return sqlSession.selectOne("Admin.login", admin);
 	}
 	
 	public void insert(Admin admin) {
