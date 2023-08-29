@@ -158,15 +158,24 @@
 
 	<%@ include file="../inc/bottom_link.jsp"%>
 	<script type="text/javascript">
+		//현재 페이지가 새로고침 없이 화면의 일부만 변경이 되려면, 
+		//통신을 백그라운드로 진행하고, 서버로부터 온전한 HTML 문서를 가져오지말고
+		//변경하고싶은 일부 데이터만 가져와보자
+		function getSubList(topcategory_idx){
+			$.ajax({
+				url:"/admin/subcategory/list?topcategory_idx="+topcategory_idx,
+				type:"GET",
+				success:function(result, status, xhr){
+					alert(result);
+				}
+			});
+		}
+		
 		$(function(){
 			//select박스에 change 이벤트 연결 
 			$("select[name='topcategory_idx']").on("change", function(){
 				//하위카테고리 목록을 달라고 서버에 전송한다..topcategory_idx 값을...
-				$("#form1").attr({
-					action:"/admin/subcategory/list",
-					method:"post"
-				});
-				$("#form1").submit();
+				getSubList($(this).val());//비동기요청을 시도하자
 			});
 		});		
 	</script>
