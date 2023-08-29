@@ -25,6 +25,7 @@
 			없다..개발자는 쿼리문에만 집중하면 된다.. -->
 		<mapper resource="org/sp/app0828/mybatis/AdminMapper.xml" />
 		<mapper resource="org/sp/app0828/mybatis/TopCategoryMapper.xml" />
+		<mapper resource="org/sp/app0828/mybatis/SubCategoryMapper.xml" />
 
 	</mappers>
 

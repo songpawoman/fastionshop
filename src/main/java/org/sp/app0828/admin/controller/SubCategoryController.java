@@ -1,20 +1,33 @@
 package org.sp.app0828.admin.controller;
 
+import java.util.List;
+
+import org.sp.app0828.model.product.SubCategoryDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 //서브카테고리와 관련된 요청을 전담하는 하위 컨트롤러 
 @Controller
 public class SubCategoryController {
 	
+	@Autowired
+	private SubCategoryDAO subCategoryDAO;
+	
 	//상위 카테고리에 소속된 하위 목록 가져오기 
 	@GetMapping("/admin/subcategory/list")
-	public ModelAndView getListByTopIdx(int topcategory_idx) {
+	@ResponseBody
+	public String getListByTopIdx(int topcategory_idx) {
+		//3단계: 일 시키기 
+		List subList=subCategoryDAO.selectAll(topcategory_idx);
+		Gson gson=new Gson();
 		
-		System.out.println("넘겨받은 top idx 는 "+topcategory_idx);
+		String json = gson.toJson(subList);
 		
-		return null;
+		return json; 
 	}
 	
 }
