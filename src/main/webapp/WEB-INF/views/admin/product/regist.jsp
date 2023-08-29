@@ -121,6 +121,40 @@
 								<!-- 우측 column  끝-->
 							</div>
 							<!-- row 끝 -->
+							
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">							
+										<input type="text" class="form-control" placeholder="상품명">								
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">							
+										<input type="text" class="form-control" placeholder="브랜드명">								
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">							
+										<input type="number" class="form-control" placeholder="가격">								
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">							
+										<textarea id="summernote" style="display: none;"> </textarea>
+										
+									</div>
+								</div>
+							</div>
+							
 						</div>
 						<!-- cart 바디 끝 -->
 						
@@ -189,6 +223,10 @@
 				//하위카테고리 목록을 달라고 서버에 전송한다..topcategory_idx 값을...
 				getSubList($(this).val());//비동기요청을 시도하자
 			});
+			
+			//서머노트 연결하기 
+			$("#summernote").summernote();
+			
 		});		
 	</script>
 	
