@@ -31,7 +31,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0">Dashboard</h1>
+							<h1 class="m-0">상품등록</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
@@ -51,7 +51,72 @@
 			<!-- Main content -->
 			<section class="content">
 				<div class="container-fluid">
-					여기에 내용 전환					
+        
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">맘에들어(Default Theme)</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+		            <div class="row">
+		            
+		              <div class="col-md-6">
+		                <div class="form-group">
+		                  <label>Minimal</label>
+		                  <select class="form-control select2" style="width: 100%;">
+		                    <option selected="selected">Alabama</option>
+		                    <option>Alaska</option>
+		                    <option>California</option>
+		                    <option>Delaware</option>
+		                    <option>Tennessee</option>
+		                    <option>Texas</option>
+		                    <option>Washington</option>
+		                  </select>
+		                </div>
+		                <!-- /.form-group -->
+		              </div>
+		              
+		              <div class="col-md-6">
+		                <div class="form-group">
+		                  <label>Minimal</label>
+		                  <select class="form-control select2" style="width: 100%;">
+		                    <option selected="selected">Alabama</option>
+		                    <option>Alaska</option>
+		                    <option>California</option>
+		                    <option>Delaware</option>
+		                    <option>Tennessee</option>
+		                    <option>Texas</option>
+		                    <option>Washington</option>
+		                  </select>
+		                </div>
+		                <!-- /.form-group -->
+		              </div>
+		              
+		              <!-- /.col -->
+		              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
+            the plugin.
+          </div>
+        </div>
+
+
+		
 				</div>	
 				<!-- /.container-fluid -->
 			</section>
