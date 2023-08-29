@@ -24,7 +24,7 @@
 							//세션을 접근할 수 있다
 							Admin admin=(Admin)session.getAttribute("admin");
 						%>
-						<a href="#" class="d-block"><%=admin.getAdmin_id() %></a>
+						<a href="#" class="d-block"><%//=admin.getAdmin_id() %></a>
 					</div>
 				</div>
 

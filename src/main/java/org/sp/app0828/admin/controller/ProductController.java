@@ -1,8 +1,13 @@
 package org.sp.app0828.admin.controller;
 
+import java.util.List;
+
+import org.sp.app0828.model.product.TopCategoryDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 //관리자모드에서의 상품과 관련된 요청을 처리하는 하위 컨트롤러
 
@@ -10,11 +15,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller  
 public class ProductController {
 	
+	//느슨하게 보유하자
+	@Autowired
+	private TopCategoryDAO topCategoryDAO;
+	
+	
 	@RequestMapping(value="/admin/product/registform", method=RequestMethod.GET)
-	public String getForm() {
-		//ModelAndView에 저장할 데이터가 없을 경우엔 뷰의 이름만 넘겨주면 되므로 
-		//이때는 String형만 반환하자 
-		return "admin/product/regist";
+	public ModelAndView getForm() {
+		//3단계: 일시키기 
+		List topList = topCategoryDAO.selectAll();
+		
+		ModelAndView mav = new ModelAndView("admin/product/regist");
+		//4단계: 가져갈것이 있다면 무조건 저장 
+		mav.addObject("topList", topList);
+		
+		return mav;
 	}
 	
 }

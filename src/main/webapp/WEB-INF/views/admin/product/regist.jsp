@@ -1,4 +1,9 @@
+<%@page import="org.sp.app0828.domain.TopCategory"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	List<TopCategory> topList = (List)request.getAttribute("topList");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,6 +59,7 @@
 				<div class="container-fluid">
 
 					<!-- cart 영역 시작 -->
+					<form id="form1">
 					<div class="card card-default">
 					
 						<!-- cart 헤더 시작 -->
@@ -82,39 +88,37 @@
 								<!-- 좌측 column 시작-->	
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Minimal</label> <select class="form-control select2"
-											style="width: 100%;">
-											<option selected="selected">Alabama</option>
-											<option>Alaska</option>
-											<option>California</option>
-											<option>Delaware</option>
-											<option>Tennessee</option>
-											<option>Texas</option>
-											<option>Washington</option>
-										</select>
+										<label>상위카테고리</label>
+											 
+											<select name="topcategory_idx" class="form-control select2" style="width: 100%;">
+												<option selected="selected">상위카테고리 선택</option>
+												<%for(TopCategory topCategory : topList){ %>
+												<option value="<%=topCategory.getTopcategory_idx() %>"><%=topCategory.getTop_name() %></option>
+												<%} %>
+											</select>
 									</div>
 									<!-- /.form-group -->
 								</div>
 								<!-- 좌측 column  끝-->
 								
 								
-								<!-- 좌측 column  시작-->	
+								<!-- 우측 column  시작-->	
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Minimal</label> <select class="form-control select2"
-											style="width: 100%;">
-											<option selected="selected">Alabama</option>
-											<option>Alaska</option>
-											<option>California</option>
-											<option>Delaware</option>
-											<option>Tennessee</option>
-											<option>Texas</option>
-											<option>Washington</option>
-										</select>
+										<label>하위카테고리</label> 
+											<select class="form-control select2" style="width: 100%;">
+												<option selected="selected">Alabama</option>
+												<option>Alaska</option>
+												<option>California</option>
+												<option>Delaware</option>
+												<option>Tennessee</option>
+												<option>Texas</option>
+												<option>Washington</option>
+											</select>
 									</div>
 									<!-- /.form-group -->
 								</div>
-								<!-- 좌측 column  끝-->
+								<!-- 우측 column  끝-->
 							</div>
 							<!-- row 끝 -->
 						</div>
@@ -122,6 +126,7 @@
 						
 					</div>
 					<!-- cart 영역 끝 -->
+					</form>
 					
 					<div class="card-footer">
 						Visit <a href="https://select2.github.io/">Select2
@@ -152,8 +157,26 @@
 	<!-- ./wrapper -->
 
 	<%@ include file="../inc/bottom_link.jsp"%>
+	<script type="text/javascript">
+		$(function(){
+			//select박스에 change 이벤트 연결 
+			$("select[name='topcategory_idx']").on("change", function(){
+				//하위카테고리 목록을 달라고 서버에 전송한다..topcategory_idx 값을...
+				$("#form1").attr({
+					action:"/admin/subcategory/list",
+					method:"post"
+				});
+				$("#form1").submit();
+			});
+		});		
+	</script>
+	
 </body>
 </html>
+
+
+
+
 
 
 
