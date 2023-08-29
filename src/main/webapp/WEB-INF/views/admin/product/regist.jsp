@@ -106,7 +106,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>하위카테고리</label> 
-											<select class="form-control select2" style="width: 100%;">
+											<select name="subcategory_idx" class="form-control select2" style="width: 100%;">
 												<option selected="selected">Alabama</option>
 												<option>Alaska</option>
 												<option>California</option>
@@ -166,7 +166,19 @@
 				url:"/admin/subcategory/list?topcategory_idx="+topcategory_idx,
 				type:"GET",
 				success:function(result, status, xhr){
-					alert(result);
+					//console.log(result[0].sub_name);
+					
+					//기존의 서브카테고리 option 요소 제거하기
+					//how to remove all option in select box using jquery
+					$("select[name='subcategory_idx']").empty();
+					
+					let tag="<option value='0'>하위 카테고리 선택</option>";
+					
+					for(let i=0;i<result.length;i++){
+						tag+="<option value='"+result[i].subcategory_idx+"'>"+result[i].sub_name+"</option>";
+					}
+					$("select[name='subcategory_idx']").html(tag);	
+					
 				}
 			});
 		}

@@ -5,7 +5,8 @@ import java.util.List;
 import org.sp.app0828.model.product.SubCategoryDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -18,7 +19,7 @@ public class SubCategoryController {
 	private SubCategoryDAO subCategoryDAO;
 	
 	//상위 카테고리에 소속된 하위 목록 가져오기 
-	@GetMapping("/admin/subcategory/list")
+	@RequestMapping(value="/admin/subcategory/list", produces="application/json;charset=utf-8", method=RequestMethod.GET)
 	@ResponseBody
 	public String getListByTopIdx(int topcategory_idx) {
 		//3단계: 일 시키기 
